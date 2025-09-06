@@ -1,0 +1,656 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Rubik+Mono+One&family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --neon-pink: #ff00ff;
+  --neon-blue: #00ffff;
+  --neon-yellow: #ffff00;
+  --neon-green: #00ff00;
+  --neon-orange: #ff6600;
+  --disco-purple: #9933ff;
+  --dark-bg: #111111;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: white;
+  font-family: "Space Mono", monospace;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+      90deg,
+      rgba(255, 0, 255, 0.03) 0px,
+      rgba(255, 0, 255, 0.03) 2px,
+      transparent 2px,
+      transparent 30px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 255, 255, 0.03) 0px,
+      rgba(0, 255, 255, 0.03) 2px,
+      transparent 2px,
+      transparent 30px
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  padding: 40px 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.disco-lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: flex;
+  justify-content: space-around;
+}
+
+.disco-light {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  animation: disco-pulse 2s infinite;
+}
+
+.disco-light:nth-child(1) {
+  background-color: var(--neon-pink);
+  animation-delay: 0s;
+}
+.disco-light:nth-child(2) {
+  background-color: var(--neon-blue);
+  animation-delay: 0.3s;
+}
+.disco-light:nth-child(3) {
+  background-color: var(--neon-yellow);
+  animation-delay: 0.6s;
+}
+.disco-light:nth-child(4) {
+  background-color: var(--neon-green);
+  animation-delay: 0.9s;
+}
+.disco-light:nth-child(5) {
+  background-color: var(--neon-orange);
+  animation-delay: 1.2s;
+}
+
+@keyframes disco-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+    box-shadow: 0 0 20px 10px currentColor;
+  }
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo h1 {
+  font-family: "Bungee Shade", cursive;
+  font-size: 4rem;
+  background: linear-gradient(
+    to right,
+    var(--neon-pink),
+    var(--neon-blue),
+    var(--neon-yellow),
+    var(--neon-green)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+  animation: text-flicker 5s infinite alternate;
+}
+
+.logo p {
+  font-family: "Rubik Mono One", sans-serif;
+  color: var(--neon-yellow);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px var(--neon-yellow);
+}
+
+@keyframes text-flicker {
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    opacity: 0.99;
+    text-shadow: 0 0 15px var(--neon-pink), 0 0 25px var(--neon-blue);
+  }
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+/* Form Panels */
+.form-panels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.panel {
+  flex: 1 1 450px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 3px solid;
+  border-image: linear-gradient(45deg, var(--neon-pink), var(--neon-blue)) 1;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+  padding: 25px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(
+    to right,
+    var(--neon-pink),
+    var(--neon-blue),
+    var(--neon-green),
+    var(--neon-orange)
+  );
+  z-index: 1;
+}
+
+.panel:hover {
+  transform: translateY(-5px);
+}
+
+.panel h2 {
+  font-family: "Rubik Mono One", sans-serif;
+  margin-bottom: 20px;
+  color: var(--neon-green);
+  text-shadow: 0 0 5px var(--neon-green);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--neon-yellow);
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--neon-blue);
+  border-radius: 5px;
+  color: white;
+  font-family: "Space Mono", monospace;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 0 3px rgba(255, 0, 255, 0.3), 0 0 20px rgba(255, 0, 255, 0.5);
+  animation: pulse-outline 1.5s infinite;
+}
+
+@keyframes pulse-outline {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px rgba(255, 0, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(255, 0, 255, 0.5);
+  }
+}
+
+.form-control.is-valid {
+  border-color: var(--neon-green);
+}
+
+.form-control.is-invalid {
+  border-color: var(--neon-orange);
+}
+
+.error-message {
+  color: var(--neon-orange);
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+  animation: fade-in 0.3s ease;
+}
+
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%2300ffff'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 40px;
+}
+
+textarea.form-control {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--neon-blue), var(--disco-purple));
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  box-shadow: 0 0 15px var(--neon-blue);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn .spinner {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn.loading {
+  color: transparent;
+}
+
+.btn.loading .spinner {
+  display: block;
+}
+
+.disco-ball {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, white, #a8a8a8);
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+  position: relative;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success Messages */
+.success-message {
+  background: rgba(0, 255, 0, 0.2);
+  border: 2px solid var(--neon-green);
+  color: var(--neon-green);
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  display: none;
+  animation: flash-neon 1.5s infinite alternate;
+}
+
+@keyframes flash-neon {
+  0%,
+  100% {
+    box-shadow: 0 0 5px var(--neon-green);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--neon-green);
+  }
+}
+
+/* Event Feed */
+.event-feed {
+  padding: 20px;
+  position: relative;
+}
+
+.event-feed::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+  z-index: 2;
+}
+
+.event-feed h2 {
+  font-family: "Rubik Mono One", sans-serif;
+  color: var(--neon-yellow);
+  text-shadow: 0 0 5px var(--neon-yellow);
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+}
+
+.events-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 0, 255, 0.1),
+    rgba(0, 255, 255, 0.1)
+  );
+  border-radius: 10px;
+}
+
+.events-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.events-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.events-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--neon-pink), var(--neon-blue));
+  border-radius: 4px;
+}
+
+.event-ticket {
+  background: var(--dark-bg);
+  border: 2px dashed var(--neon-yellow);
+  border-radius: 10px;
+  padding: 15px;
+  position: relative;
+  transform: rotate(-1deg);
+  transition: all 0.3s ease;
+}
+
+.event-ticket:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.event-ticket:hover {
+  transform: rotate(0) scale(1.03);
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.5);
+  z-index: 1;
+}
+
+.event-ticket::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: -10px;
+  width: 20px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--dark-bg),
+    var(--dark-bg) 2px,
+    var(--neon-yellow) 2px,
+    var(--neon-yellow) 4px
+  );
+  clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
+}
+
+.event-title {
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 1.2rem;
+  color: var(--neon-blue);
+  margin-bottom: 10px;
+}
+
+.event-details {
+  font-size: 0.9rem;
+}
+
+.event-date,
+.event-location,
+.event-category {
+  margin-bottom: 5px;
+}
+
+.event-date i,
+.event-location i,
+.event-category i {
+  color: var(--neon-pink);
+  width: 20px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .logo h1 {
+    font-size: 2.5rem;
+  }
+
+  .form-panels {
+    flex-direction: column;
+  }
+
+  .panel {
+    flex: 1 1 100%;
+  }
+
+  .events-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .events-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Confirmation Card */
+.confirmation-card {
+  position: fixed;
+  top: 50%;
+  right: -400px;
+  transform: translateY(-50%);
+  width: 350px;
+  background: var(--dark-bg);
+  border: 3px solid var(--neon-green);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+  z-index: 10;
+  transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.confirmation-card.show {
+  right: 20px;
+}
+
+.confirmation-card h3 {
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 1.5rem;
+  color: var(--neon-green);
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  animation: pulse-text 1.5s infinite alternate;
+}
+
+@keyframes pulse-text {
+  0%,
+  100% {
+    text-shadow: 0 0 5px currentColor;
+  }
+  50% {
+    text-shadow: 0 0 15px currentColor;
+  }
+}
+
+.confirmation-card .event-summary {
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.confirmation-card .btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* No Events Message */
+.no-events {
+  text-align: center;
+  padding: 30px;
+  color: var(--neon-blue);
+  font-style: italic;
+}
+
+/* Other Category Input */
+.other-category {
+  display: none;
+  margin-top: 10px;
+}
+
+.other-category.show {
+  display: block;
+  animation: fade-in 0.3s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media query for very small screens */
+@media (max-width: 400px) {
+  .logo h1 {
+    font-size: 2rem;
+  }
+
+  .logo p {
+    font-size: 0.9rem;
+  }
+
+  .confirmation-card {
+    width: 90%;
+  }
+}
+
+/* Fix for flatpickr calendar */
+.flatpickr-calendar {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border: 2px solid var(--neon-blue) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5) !important;
+}
+
+.flatpickr-day {
+  color: white !important;
+  border-radius: 0 !important;
+}
+
+.flatpickr-day.selected {
+  background: var(--neon-pink) !important;
+  border-color: var(--neon-pink) !important;
+}
+
+.flatpickr-months .flatpickr-month {
+  color: var(--neon-yellow) !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  color: var(--neon-yellow) !important;
+}
+
+.flatpickr-time input {
+  color: white !important;
+}

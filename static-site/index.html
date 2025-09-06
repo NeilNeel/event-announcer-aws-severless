@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GROOVE ANNOUNCER • 1970s Disco Events</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="disco-lights">
+          <div class="disco-light"></div>
+          <div class="disco-light"></div>
+          <div class="disco-light"></div>
+          <div class="disco-light"></div>
+          <div class="disco-light"></div>
+        </div>
+        <div class="logo">
+          <h1>Groove Announcer</h1>
+          <p>Boogie Down with the Hottest Events!</p>
+        </div>
+      </header>
+
+      <section class="form-panels">
+        <div class="panel">
+          <h2>Join the Disco Mailing List</h2>
+          <form id="subscriber-form">
+            <div class="form-group">
+              <label for="email">Your Groovy Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="you@funky.com"
+                required
+              />
+              <div class="error-message" id="email-error">
+                Please enter a valid email address
+              </div>
+            </div>
+            <button type="submit" class="btn" id="subscribe-btn">
+              Subscribe
+              <span class="spinner disco-ball"></span>
+            </button>
+            <div class="success-message" id="subscribe-success">
+              Thanks for subscribing! Get ready to boogie!
+            </div>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h2>Create a Far Out Event</h2>
+          <form id="event-form">
+            <div class="form-group">
+              <label for="title">Event Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                placeholder="Saturday Night Fever"
+                required
+              />
+              <div class="error-message" id="title-error">
+                Please enter an event title
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                class="form-control"
+                id="description"
+                placeholder="Tell us about this groovy event..."
+                required
+              ></textarea>
+              <div class="error-message" id="description-error">
+                Please enter a description
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="datetime">Date & Time</label>
+              <input
+                type="datetime-local"
+                class="form-control"
+                id="datetime"
+                required
+              />
+              <div class="error-message" id="datetime-error">
+                Please select a date and time
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Location</label>
+              <input
+                type="text"
+                class="form-control"
+                id="location"
+                placeholder="Studio 54, New York City"
+                required
+              />
+              <div class="error-message" id="location-error">
+                Please enter a location
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="category">Category</label>
+              <select class="form-control" id="category" required>
+                <option value="">Select a category</option>
+                <option value="disco">Disco Party</option>
+                <option value="live">Live Music</option>
+                <option value="danceoff">Dance-Off</option>
+                <option value="rollerskate">Roller Disco</option>
+                <option value="other">Other</option>
+              </select>
+              <div class="error-message" id="category-error">
+                Please select a category
+              </div>
+
+              <div class="other-category" id="other-category-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="other-category"
+                  placeholder="Specify category"
+                />
+                <div class="error-message" id="other-category-error">
+                  Please specify the category
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn" id="create-event-btn">
+              Create Event
+              <span class="spinner disco-ball"></span>
+            </button>
+          </form>
+        </div>
+      </section>
+<!-- 
+      <section class="event-feed">
+        <h2>Upcoming Disco Events</h2>
+        <div class="events-container" id="events-container">
+          <div class="no-events">
+            <p>No events yet. Be the first to create one!</p>
+          </div>
+        </div>
+      </section>
+    </div> -->
+
+    <div class="confirmation-card" id="confirmation-card">
+      <button class="btn-close" id="close-confirmation">&times;</button>
+      <h3>Event Created!</h3>
+      <div class="event-summary" id="event-summary">
+        <!-- Event summary will be populated here -->
+      </div>
+    </div>
+  </body>
+   <script src="script.js"></script> 
+</html>

@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+*.tfvars
+
+# AWS & Environment
+.env
+.aws/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Screenshots
+screenshots/
+
+# Lambda packages
+*.zip
