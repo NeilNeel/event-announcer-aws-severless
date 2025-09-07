@@ -22,8 +22,9 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Screenshots
 screenshots/
+.claude/
+.pdf
 
 # Lambda packages
 *.zip
