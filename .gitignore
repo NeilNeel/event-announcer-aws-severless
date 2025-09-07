@@ -23,8 +23,7 @@ venv/
 Thumbs.db
 
 screenshots/
-.claude/
-.pdf
+*.pdf
 
 # Lambda packages
 *.zip
