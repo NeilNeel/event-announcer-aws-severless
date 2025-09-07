@@ -4,7 +4,7 @@ A disco-themed event announcement system built with AWS serverless architecture.
 
 ## Architecture Overview
 
-![Architecture Diagram](screenshots/aws-serverless-event-announcement-system-architecture.png)
+![Architecture Diagram](aws-serverless-event-announcement-system-architecture.png)
 
 The system demonstrates production-ready serverless patterns including Infrastructure as Code, event-driven architecture, and security-first deployment practices with WAF protection and rate limiting.
 
